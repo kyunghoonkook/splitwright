@@ -51,10 +51,12 @@ export async function api<T = any>(url: string, init?: RequestInit): Promise<T> 
 }
 
 export function useKey() {
-  const [k, setK] = useState<string | null>(null);
+  const read = () => (typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("k"));
+  const [k, setK] = useState<string | null>(read);
   useEffect(() => {
-    setK(new URLSearchParams(window.location.search).get("k"));
-  }, []);
+    const v = read();
+    if (v !== k) setK(v);
+  });
   return k;
 }
 

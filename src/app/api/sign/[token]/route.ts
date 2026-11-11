@@ -18,7 +18,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ token: string 
     if (!a) return bad("This link is not valid.", 404);
     const { project: p, rs } = a;
     const members = p.members.map((m) => ({ id: m.id, name: m.name }));
-    const sim = rs ? simulate({ rules: rs.rules, members, owner_id: p.owner_id, price_cents: p.product.price_cents, count: 60 }) : null;
+    const sim = rs ? simulate({ rules: rs.rules, members, owner_id: p.owner_id, price_cents: p.product.price_cents, count: 160 }) : null;
     return json({
       project: { id: p.id, name: p.name, product: p.product, owner_id: p.owner_id, members: p.members.map((m) => ({ id: m.id, name: m.name, color: m.color })) },
       me: { id: a.member.id, name: a.member.name, paypal_email: a.member.paypal_email },

@@ -287,7 +287,7 @@ export default function DealPage() {
               {hasRules && open.length === 0 && (
                 <div className="row">
                   <Link className="btn" href={`/p/${id}/preview?k=${k}`}>
-                    Preview 60 sales →
+                    Preview 160 sales →
                   </Link>
                 </div>
               )}

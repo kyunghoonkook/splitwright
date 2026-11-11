@@ -42,7 +42,7 @@ export async function refreshPending(sales: Sale[]) {
   return sales;
 }
 
-export function previewFor(rules: RuleSet["rules"], p: Project, count = 60) {
+export function previewFor(rules: RuleSet["rules"], p: Project, count = 160) {
   const members = p.members.map((m) => ({ id: m.id, name: m.name }));
   const sim = simulate({ rules, members, owner_id: p.owner_id, price_cents: p.product.price_cents, count });
   return { ...sim, engine_summary: sim.error ? [] : engineSummary(rules, members, p.owner_id) };

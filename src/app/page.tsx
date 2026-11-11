@@ -49,7 +49,7 @@ export default function Home() {
             <tbody>
               <tr><td className="mono">1</td><td>Paste the deal. Gemini turns it into ordered rules and shows which sentence each rule came from.</td></tr>
               <tr><td className="mono">2</td><td>Answer the questions the deal leaves open. The model cannot fill these in.</td></tr>
-              <tr><td className="mono">3</td><td>Preview 60 sales, then every member signs that exact version.</td></tr>
+              <tr><td className="mono">3</td><td>Preview 160 sales, then every member signs that exact version.</td></tr>
               <tr><td className="mono">4</td><td>A buyer pays with PayPal. The engine splits the captured amount in cents, checks limits, and sends one Payouts batch.</td></tr>
               <tr><td className="mono">5</td><td>Webhooks update the ledger. Everyone sees how their share was worked out.</td></tr>
             </tbody>

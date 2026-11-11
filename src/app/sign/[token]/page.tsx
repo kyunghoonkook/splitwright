@@ -111,7 +111,7 @@ export default function SignPage() {
             </div>
           </div>
           <div className="panel flush">
-            <div style={{ padding: "10px 14px" }}><h3 style={{ margin: 0 }}>The first 60 sales under these rules (estimated fees)</h3></div>
+            <div style={{ padding: "10px 14px" }}><h3 style={{ margin: 0 }}>The first 160 sales under these rules (estimated fees)</h3></div>
             <Grid rows={rows} cols={cols} height={380} getRowId={(r) => String(r.data.n)} rowClassRules={{ "sw-edge": (r) => !!r.data?.events }} />
           </div>
         </>

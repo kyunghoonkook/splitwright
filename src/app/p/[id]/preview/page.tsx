@@ -112,7 +112,7 @@ export default function PreviewPage() {
                     <p>
                       Version <span className="mono">{p.active_version.slice(0, 6)}</span> is active. Edits to the deal create a new version that everyone signs again.
                     </p>
-                    {p.draft && <button className="btn ghost" disabled={busy} onClick={send}>Send the edited deal for signatures</button>}
+                    {p.draft && JSON.stringify(p.draft.rules) !== JSON.stringify(data?.active?.rules) && <button className="btn ghost" disabled={busy} onClick={send}>Send the edited deal for signatures</button>}
                   </>
                 )}
                 {pending && (
@@ -139,7 +139,7 @@ export default function PreviewPage() {
           {pv?.rows && (
             <div className="panel flush">
               <div className="row between" style={{ padding: "10px 14px" }}>
-                <h3 style={{ margin: 0 }}>60 sales at {usd(p.product.price_cents)}, before any money exists</h3>
+                <h3 style={{ margin: 0 }}>160 sales at {usd(p.product.price_cents)}, before any money exists</h3>
                 <span className="small dim">Highlighted rows are where a payback finishes or a cap is reached. Fees here are estimates; real sales use the fee PayPal reports.</span>
               </div>
               <Grid rows={rows} cols={cols} height={460} getRowId={(r) => String(r.data.n)} rowClassRules={{ "sw-edge": (r) => !!r.data?.events }} />
