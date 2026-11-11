@@ -99,6 +99,7 @@ export interface Project {
   draft: Draft | null;
   pending_version: string | null; // awaiting signatures
   active_version: string | null;
+  daily_limit_cents?: number;
   created_at: string;
 }
 
