@@ -162,7 +162,7 @@ export async function refreshBatch(sale: Sale) {
     if (it.payout_item_fee?.value) line.payout_fee_cents = toCents(it.payout_item_fee.value);
     await mapItem(it.payout_item_id, sale.capture_id);
   }
-  if (sale.lines.filter((l) => l.status !== "retained").every((l) => l.status === "succeeded")) sale.status = "paid";
+  if (sale.lines.filter((l) => l.status !== "retained").every((l) => l.status === "succeeded" || l.status === "unclaimed")) sale.status = "paid";
   await saveSale(sale);
   return sale;
 }
