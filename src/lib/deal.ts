@@ -161,7 +161,7 @@ export function sanitize(raw: unknown, members: Member[], source: string): { rul
 }
 
 // ---------- Gemini ----------
-async function gemini(prompt: string): Promise<{ json: unknown; model: string }> {
+async function gemini(prompt: string, ms = 45000): Promise<{ json: unknown; model: string }> {
   const key = process.env.GEMINI_API_KEY;
   if (!key) throw new Error("No Gemini key configured");
   const models = (process.env.GEMINI_MODEL || "gemini-3.5-flash,gemini-flash-latest").split(",").map((s) => s.trim()).filter(Boolean);
@@ -170,6 +170,7 @@ async function gemini(prompt: string): Promise<{ json: unknown; model: string }>
     const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      signal: AbortSignal.timeout(ms),
       body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }], generationConfig: { responseMimeType: "application/json", temperature: 0.1 } }),
     });
     const j = await r.json().catch(() => ({}));
@@ -228,7 +229,7 @@ Rules JSON: ${JSON.stringify(rules)}
 Worked examples from the engine:
 ${examples.join("\n")}
 Return JSON: {"lines": ["..."]}`;
-  const { json, model } = await gemini(prompt);
+  const { json, model } = await gemini(prompt, 12000);
   const p = z.object({ lines: z.array(z.string()).min(1).max(6) }).parse(json);
   return { lines: p.lines.map((l) => l.slice(0, 240)), model };
 }
