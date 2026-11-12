@@ -4,7 +4,7 @@ import { getProject, getRuleSet, getToken, saveProject, setToken } from "./store
 
 export const MEMBER_COLORS = ["#2F6FDE", "#D9480F", "#7A3EB1", "#0F7B6C", "#8C6D1F"];
 
-export const DEMO_DEAL = `Jun paid the $120 music license out of his own pocket, so he gets that back first. After that we split everything Mina 50, Jun 30, Sol 20. Sol only wants $300 in total from this pack.`;
+export const DEMO_DEAL = `Jun paid the $8 font license out of his own pocket, so he gets that back first. After that we split everything Mina 50, Jun 30, Sol 20. Sol only wants $300 in total from this pack.`;
 
 export async function createProject(input: { name: string; product: { title: string; price_cents: number; blurb: string }; members: { name: string; paypal_email: string }[]; source?: string }) {
   const id = rid(6);
