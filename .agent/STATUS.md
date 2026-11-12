@@ -39,3 +39,4 @@
 - 01:12 유튜브 공개 https://youtu.be/rhld3UW8CM8 (Kook Kyunghoon 채널, 아동용 아님)
 - 01:17 Devpost 제출 완료 https://devpost.com/software/splitwright ('Project submitted!' 확인). 할 일: 영상 14_paypal_login 장면에 Aside 자동입력 창(실제 이메일)이 찍힘 → 장면 교체 후 재업로드, Devpost 영상 주소 교체.
 - 01:25 영상 재업로드 https://youtu.be/CLXbt6AM1yw (공개), 이전 rhld3UW8CM8 는 비공개로 바꿈. Devpost 영상 주소 교체 중.
+- 01:30 Devpost 영상 주소 교체 완료, SUBMITTED 5/5 확인. 공개 주소 4개 열림 확인. 끝.
