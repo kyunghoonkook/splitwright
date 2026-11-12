@@ -36,3 +36,4 @@
 - README 영어 작성·푸시 완료. 1단계 끝.
 - 2단계 영상: 장면 이미지와 lines.txt(내레이션), tts.py, run.sh 가 tmp/vid 에 있음. 음성 n01~n11.wav 생성 중.
 - 01:06 영상 완성 tmp/vid/splitwright_demo.mp4 (2분 22초). Devpost 초안 https://devpost.com/submit-to/31302-paypal-ai-hackathon/manage/submissions/1298756-splitwright (1·2단계 입력 중, 영상 주소만 남음). 유튜브 업로드 시작.
+- 01:12 유튜브 공개 https://youtu.be/rhld3UW8CM8 (Kook Kyunghoon 채널, 아동용 아님)
