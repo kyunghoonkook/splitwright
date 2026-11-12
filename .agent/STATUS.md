@@ -35,3 +35,4 @@
 - 00:50 두 번째 구매(구매자 로그인, 정상 복귀 확인) 2W415294RG1676306, 세 번째 구매 5K134307LE0806845는 하루 한도 $16로 보류 → 한도 300 복구 후 'Check again and pay'로 지급. 준 샌드박스 계정에 +$8.97 입금 확인. 웹훅 5건 수신(서명 확인).
 - README 영어 작성·푸시 완료. 1단계 끝.
 - 2단계 영상: 장면 이미지와 lines.txt(내레이션), tts.py, run.sh 가 tmp/vid 에 있음. 음성 n01~n11.wav 생성 중.
+- 01:06 영상 완성 tmp/vid/splitwright_demo.mp4 (2분 22초). Devpost 초안 https://devpost.com/submit-to/31302-paypal-ai-hackathon/manage/submissions/1298756-splitwright (1·2단계 입력 중, 영상 주소만 남음). 유튜브 업로드 시작.
