@@ -39,7 +39,7 @@ async function call(method: string, path: string, body?: unknown, headers: Recor
 const money = (c: number) => (c / 100).toFixed(2);
 export const toCents = (v: string | number) => Math.round(Number(v) * 100);
 
-export function createOrder(p: { project_id: string; title: string; price_cents: number }) {
+export function createOrder(p: { project_id: string; title: string; price_cents: number; return_url?: string; cancel_url?: string }) {
   return call("POST", "/v2/checkout/orders", {
     intent: "CAPTURE",
     purchase_units: [
@@ -50,7 +50,7 @@ export function createOrder(p: { project_id: string; title: string; price_cents:
         items: [{ name: p.title.slice(0, 120), quantity: "1", unit_amount: { currency_code: "USD", value: money(p.price_cents) }, category: "DIGITAL_GOODS" }],
       },
     ],
-    payment_source: { paypal: { experience_context: { shipping_preference: "NO_SHIPPING", user_action: "PAY_NOW", brand_name: "Splitwright demo" } } },
+    payment_source: { paypal: { experience_context: { shipping_preference: "NO_SHIPPING", user_action: "PAY_NOW", brand_name: "Splitwright demo", ...(p.return_url ? { return_url: p.return_url, cancel_url: p.cancel_url } : {}) } } },
   });
 }
 

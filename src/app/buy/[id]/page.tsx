@@ -41,12 +41,41 @@ export default function BuyPage() {
   const [d, setD] = useState<any>(null);
   const [err, setErr] = useState<string | null>(null);
   const [done, setDone] = useState<any>(null);
+  const [paying, setPaying] = useState(false);
   const box = useRef<HTMLDivElement>(null);
   const rendered = useRef(false);
 
   useEffect(() => {
     api(`/api/public/${id}`).then(setD).catch((e) => setErr(e.message));
   }, [id]);
+
+  // Return from PayPal after the same-tab (no pop-up) checkout: ?token=ORDER_ID&PayerID=...
+  const returned = useRef(false);
+  useEffect(() => {
+    if (returned.current) return;
+    const q = new URLSearchParams(window.location.search);
+    const token = q.get("token");
+    if (!token || !q.get("PayerID")) return;
+    returned.current = true;
+    rendered.current = true;
+    setPaying(true);
+    api(`/api/paypal/orders/${token}/capture`, { method: "POST" })
+      .then(setDone)
+      .catch((e) => setErr(e.message))
+      .finally(() => setPaying(false));
+  }, []);
+
+  async function payInTab() {
+    try {
+      setPaying(true);
+      const o = await api("/api/paypal/orders", { method: "POST", body: JSON.stringify({ project_id: id, redirect: true }) });
+      if (o.approve) window.location.href = o.approve;
+      else throw new Error("PayPal did not return an approval link");
+    } catch (e: any) {
+      setErr(e.message);
+      setPaying(false);
+    }
+  }
 
   useEffect(() => {
     if (!d || rendered.current) return;
@@ -84,7 +113,12 @@ export default function BuyPage() {
           <h1>{d.product.title}</h1>
           <p className="dim">{d.product.blurb}</p>
           <div className="price">{usd(d.product.price_cents)}</div>
-          {!done && <div ref={box} />}
+          {!done && !paying && <div ref={box} />}
+          {!done && (
+            <button className="btn" style={{ width: "100%", marginTop: 8 }} disabled={paying} onClick={payInTab}>
+              {paying ? "Working with PayPal…" : "Pay with PayPal in this tab (no pop-up)"}
+            </button>
+          )}
           {done && (
             <div className="stack">
               <div className="note" style={{ borderLeftColor: "var(--ok)" }}>
