@@ -1,6 +1,6 @@
 # Splitwright 진행 상황 (개발 단계, Opus 5.5)
 기획: /Users/guggyeonghun/.aside/u/0/sessions/2026-11-10_baP891hto7irXDys/tmp/contests/paypal2/PLAN.md, PLAN_REVIEW.md
-마지막 갱신: 11/12 08:16
+마지막 갱신: 11/13 00:25 (마무리 작업자)
 
 ## 끝난 것
 - 샌드박스 Payouts 실제 호출 통과(11/12 01:05, 묶음 JF8G329QPABBU). 앱은 RefundClerk과 같은 샌드박스 앱(범위에 payouts, webhooks).
@@ -25,3 +25,10 @@
 - 샌드박스 사업자(돈 받는 쪽, Mina 역): sb-4e3cr53833060@business.example.com
 - 샌드박스 개인(구매자로 사용): sb-wvrlz53834447@personal.example.com (비밀번호는 developer.paypal.com 계정 화면에서 확인)
 - PayPal 개발자 로그인: Aside 비밀번호 보관함 'PayPal 계정 로그인' + 문자 인증
+
+## 11/13 마무리 작업 기록
+- 데모 약속을 $8 글꼴 비용 회수로 바꿈(첫 판매에 세 사람 모두 지급되도록). 상한 표시 버그, 서명 상태 문구, Gemini 요약 12초 제한, PayPal 버튼 영어, 같은 탭 결제(팝업 없음) 추가. 모두 배포됨.
+- GitHub 공개 저장소 https://github.com/kyunghoonkook/splitwright (MIT LICENSE) 푸시 완료
+- 실제 흐름 1회(00:21): 프로젝트 L6Ma8Ksa(리드 키 CKHPW3yt8643nKlR), 버전 909317059c02, 주문 9JG66454W8585725Y, 수수료 $0.77, 순액 $11.23 → Mina $1.61(계정에 남김) Jun $8.97 Sol $0.65
+- 구매자: 결제 화면의 '카드로 결제 + 계정 만들기'로 샌드박스 개인 계정 생성 buyer.splitwright.demo@example.com / 비밀번호 SplitDemo#2026 (가짜 돈, 시험 카드 4012000033330026). 가입 직후 PayPal이 상점으로 돌려보내지 않아 돌아오는 주소를 직접 열어 캡처함.
+- 영상 캡처: /Users/guggyeonghun/.aside/u/0/sessions/2026-11-13_yMUl1DqSj7Hrowmd/tmp/vid
