@@ -123,7 +123,7 @@ export default function PreviewPage() {
                         {p.members.map((m: any) => (
                           <tr key={m.id}>
                             <td><Who {...m} /></td>
-                            <td>{signed(m.id) ? <span className="st succeeded">Signed {when(signed(m.id).signed_at)}</span> : <Status s="pending" />}</td>
+                            <td>{signed(m.id) ? <span className="st succeeded">Signed {when(signed(m.id).signed_at)}</span> : <span className="st pending">Not signed yet</span>}</td>
                             <td className="num"><a className="small" href={m.sign_link} target="_blank" rel="noreferrer">private link ↗</a></td>
                           </tr>
                         ))}
