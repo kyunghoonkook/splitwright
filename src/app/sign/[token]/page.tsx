@@ -94,7 +94,7 @@ export default function SignPage() {
                     return (
                       <tr key={m.id}>
                         <td><Who name={m.name} color={name(m.id)?.color} /></td>
-                        <td>{s ? <span className="st succeeded">Signed {when(s.signed_at)}</span> : <Status s="pending" />}</td>
+                        <td>{s ? <span className="st succeeded">Signed {when(s.signed_at)}</span> : <span className="st pending">Not signed yet</span>}</td>
                       </tr>
                     );
                   })}
