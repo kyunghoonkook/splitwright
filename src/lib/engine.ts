@@ -155,7 +155,7 @@ export function allocate(args: {
           remaining -= excess;
         }
         capNotes.push(`${name(t.s.payee)} reached the ${usd(cap.cap_cents)} cap; the rest of that share goes ${cap.overflow === "owner" ? `to ${name(owner_id)}` : "to the others by their percentages"}.`);
-        events.push(`cap:${i}:${t.s.payee}`);
+        if (give > 1e-9) events.push(`cap:${i}:${t.s.payee}`);
       }
       active = active.filter((s) => !over.some((o) => o.s.payee === s.payee));
     }
