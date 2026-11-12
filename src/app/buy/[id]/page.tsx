@@ -52,7 +52,7 @@ export default function BuyPage() {
     if (!d || rendered.current) return;
     rendered.current = true;
     const s = document.createElement("script");
-    s.src = `https://www.paypal.com/sdk/js?client-id=${d.paypal_client_id}&currency=USD&intent=capture&components=buttons`;
+    s.src = `https://www.paypal.com/sdk/js?client-id=${d.paypal_client_id}&currency=USD&intent=capture&components=buttons&locale=en_US`;
     s.onload = () => {
       window.paypal
         ?.Buttons({
